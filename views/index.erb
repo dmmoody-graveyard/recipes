@@ -1,0 +1,18 @@
+<h1>Cookbook:</h1>
+
+<p>Here are all of your recipes</p>
+
+<ul>
+  <% @recipes.each() do |recipe| %>
+    <li><%= recipe.name() %></li>
+  <% end %>
+</ul>
+
+<p>Create a new recipe</p>
+
+<form action="/recipes" method="post"
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add Recipe</button>
+</form>
