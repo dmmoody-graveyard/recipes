@@ -1,4 +1,4 @@
 class Recipe < ActiveRecord::Base
-  belongs_to_and_has_many(:categories)
+  has_and_belongs_to_many(:categories)
   validates(:name, :presence => true)
 end
