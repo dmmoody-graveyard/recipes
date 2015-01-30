@@ -1,0 +1,18 @@
+<h1>Cookbook</h1>
+
+<p>Here are all of your categories</p>
+
+  <ul>
+    <% @categories.each() do |category| %>
+    <li><%= category.name() %></li>
+    <% end %>
+  </ul>
+
+<p>Create a new category</p>
+
+<form action="/categories" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add Category</button>
+</form>

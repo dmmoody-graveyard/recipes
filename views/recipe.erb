@@ -1,0 +1,24 @@
+<h1><%= @recipe.name() %></h1>
+
+<p>Categories</p>
+
+<% if @recipe.categories().any?() %>
+<ul>
+  <% @recipe.categories().each() do |categories| %>
+  <li><%= category.name() %></li>
+  <% end %>
+</ul>
+<% end %>
+
+
+<p>Add a category</p>
+
+<form action="/recipes/<%= @recipe.id() %>" method="post">
+  <input id="recipe_id" name="recipe_id" type="hidden" value="<%= @recipe.id() %>">
+  <select name='category'>
+    <% @categories.each() do |category| %>
+    <option value="<%= category.name() %>"><%= category.name() %></option>
+    <% end %>
+  </select>
+  <button type="submit" value='submit'>Add Recipe</button>
+</form>

@@ -4,15 +4,34 @@
 
 <ul>
   <% @recipes.each() do |recipe| %>
-    <li><%= recipe.name() %></li>
+    <li><a href="recipes/<%= recipe.id %>"><%= recipe.name() %></a></li>
   <% end %>
 </ul>
 
 <p>Create a new recipe</p>
 
-<form action="/recipes" method="post"
+<form action="/recipes" method="post">
   <label for="name">Name</label>
   <input id="name" name="name" type="text">
 
   <button type="submit">Add Recipe</button>
+</form>
+
+<hr>
+
+<p>Here are all of your categories</p>
+
+<ul>
+  <% @categories.each() do |category| %>
+    <li><%= category.name() %></li>
+  <% end %>
+</ul>
+
+<p>Create a new category</p>
+
+<form action="/categories" method="post">
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add Category</button>
 </form>
