@@ -4,7 +4,7 @@
 
 <% if @recipe.categories().any?() %>
 <ul>
-  <% @recipe.categories().each() do |categories| %>
+  <% @recipe.categories().each() do |category| %>
   <li><%= category.name() %></li>
   <% end %>
 </ul>
@@ -17,7 +17,7 @@
   <input id="recipe_id" name="recipe_id" type="hidden" value="<%= @recipe.id() %>">
   <select name='category'>
     <% @categories.each() do |category| %>
-    <option value="<%= category.name() %>"><%= category.name() %></option>
+    <option value="<%= category.id() %>"><%= category.name() %></option>
     <% end %>
   </select>
   <button type="submit" value='submit'>Add Recipe</button>

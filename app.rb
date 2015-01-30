@@ -35,14 +35,11 @@ get('/recipes/:id') do
 end
 
 post('/recipes/:id') do
-  category = params.fetch("category")
-  category = Category.find_by_name(category)
-  category_id = category.id
-  @category = Category.find(category_id)
+  category = params.fetch("category").to_i()
+  @category = Category.find(category)
   recipe_id = params.fetch("id").to_i()
   @recipe = Recipe.find(recipe_id)
-  @category.recipes.push(@recipe)
-
+  @recipe.categories.push(@category)
   @categories = Category.all()
   erb(:recipe)
 end
