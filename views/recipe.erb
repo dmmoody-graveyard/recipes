@@ -3,23 +3,24 @@
 <p>Categories</p>
 
 <% if @recipe.categories().any?() %>
-<ul>
+<ul class="list-group">
   <% @recipe.categories().each() do |category| %>
-  <li><a href="/categories/<%= category.id %>"><%= category.name() %></a></li>
+  <li class="list-group-item"><a href="/categories/<%= category.id %>"><%= category.name() %></a></li>
   <% end %>
 </ul>
 <% end %>
 
 
-<p>Add a category</p>
-
-<form action="/recipes/<%= @recipe.id() %>" method="post">
+<form class="form-group" action="/recipes/<%= @recipe.id() %>" method="post">
+  <label for="name">Add a new category</label>
   <input id="recipe_id" name="recipe_id" type="hidden" value="<%= @recipe.id() %>">
+  
   <select name='category'>
     <% @categories.each() do |category| %>
     <option value="<%= category.id() %>"><%= category.name() %></option>
     <% end %>
   </select>
+  
   <button type="submit" value='submit' class="btn btn-default">Add Recipe</button>
 </form>
 

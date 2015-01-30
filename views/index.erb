@@ -1,18 +1,18 @@
 
 <p>Here are all of your recipes</p>
 
-<ul>
+<ul class="list-group">
   <% @recipes.each() do |recipe| %>
-    <li><a href="recipes/<%= recipe.id %>"><%= recipe.name() %></a></li>
+    <li class="list-group-item"><a href="recipes/<%= recipe.id %>"><%= recipe.name() %></a></li>
   <% end %>
 </ul>
 
-<p>Create a new recipe</p>
 
 <form action="/recipes" method="post">
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text">
-
+  <div class="form-group">
+    <label for="name">Create a new recipe</label>
+    <input id="name" name="name" type="text" class="form-control" placeholder="Enter Recipe Name">
+  </div>
   <button class="btn btn-default" type="submit">Add Recipe</button>
 </form>
 
@@ -20,17 +20,17 @@
 
 <p>Here are all of your categories</p>
 
-<ul>
+<ul class="list-group">
   <% @categories.each() do |category| %>
-    <li><a href="categories/<%= category.id %>"><%= category.name() %></a></li>
+    <li class="list-group-item"><a href="categories/<%= category.id %>"><%= category.name() %></a></li>
   <% end %>
 </ul>
 
-<p>Create a new category</p>
 
 <form action="/categories" method="post">
-  <label for="name">Name</label>
-  <input id="name" name="name" type="text">
-
+  <div class="form-group">
+    <label for="name">Create a new category</label>
+    <input id="name" name="name" class="form-control" type="text" placeholder="Enter New Category Name">
+  </div>
   <button class="btn btn-default" type="submit">Add Category</button>
 </form>
