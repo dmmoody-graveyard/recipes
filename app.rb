@@ -36,11 +36,13 @@ end
 
 post('/recipes/:id') do
   category = params.fetch("category")
-  @recipe = Recipe.find(params.fetch("id").to_i())
   category = Category.find_by_name(category)
-  @recipe = Recipe.find(params.fetch("id").to_i())
-  @recipe.update({:category_id => category.id})
-  binding.pry
+  category_id = category.id
+  @category = Category.find(category_id)
+  recipe_id = params.fetch("id").to_i()
+  @recipe = Recipe.find(recipe_id)
+  @category.recipes.push(@recipe)
+
   @categories = Category.all()
   erb(:recipe)
 end
