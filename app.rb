@@ -43,3 +43,9 @@ post('/recipes/:id') do
   @categories = Category.all()
   erb(:recipe)
 end
+
+get('/categories/:id') do
+  @category = Category.find(params.fetch("id").to_i())
+  @recipes = Recipe.all()
+  erb(:category)
+end
